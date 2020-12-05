@@ -36,7 +36,7 @@ if ($orderBy != 'date' && $orderBy != 'favorites' && $orderBy != 'retweets') {
 ?>
 
 <div id='top'></div>
-
+<p>Test</p>
 <div id='search-fields'>
 	<form action='search.php#start' method='get'>
 
