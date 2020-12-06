@@ -29,14 +29,18 @@ $dateMax = $_GET['dateMax'] ?? '2020-06-17';
 
 // Only accept date, favorites or retweets as value.
 $orderBy = $_GET['orderBy'] ?? 'date';
-if ($orderBy != 'date' && $orderBy != 'favorites' && $orderBy != 'retweets') {
+if ( $orderBy != 'date' && $orderBy != 'favorites' && $orderBy != 'retweets' ) {
  $orderBy = 'date';
 }
 
+$orderType = $_GET['orderType'] ?? 'ASC';
+if ( $orderType != 'ASC' && $orderType != 'DESC' ) {
+	echo 'Trigger';
+	$orderType = 'ASC';
+}
 ?>
 
 <div id='top'></div>
-<p>Test</p>
 <div id='search-fields'>
 	<form action='search.php#start' method='get'>
 
@@ -107,7 +111,7 @@ $searchquery = $db->prepare("
 	AND favorites BETWEEN :favMin AND :favMax 
 	AND retweets BETWEEN :retMin AND :retMax
 	AND date(date) BETWEEN :dateMin AND :dateMax 
-	ORDER BY $orderBy 
+	ORDER BY $orderBy $orderType  
 	LIMIT :limit
 "); 
 
@@ -127,6 +131,7 @@ $result = $searchquery->execute();
 echo "<div id='start'></div><br><br><br>";
 
 var_dump($_GET);
+var_dump($orderType);
 
 while( $row = $result->fetchArray(SQLITE3_ASSOC) ) { 
 	theTweet($row);
