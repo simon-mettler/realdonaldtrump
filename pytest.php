@@ -19,7 +19,7 @@ while( $row = $dbData->fetchArray(SQLITE3_ASSOC) ) {
 }
 
 // Send string to python script and get result.
-$pyResult = shell_exec('python pytest.py ' . escapeshellarg($dataStr));
+$pyResult = shell_exec('python3 pytest.py ' . escapeshellarg($dataStr) . " 2>&1");
 
 // Make something with the result.
 echo 'A total of ' . $pyResult . ' Words...';
