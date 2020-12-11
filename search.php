@@ -15,7 +15,7 @@ print_head('Search');
 if (empty($_GET['searchWord'])) {
 	$search = '%';
 } else {
-	$search = '%'.$_GET['searchWord'].'%';
+	$search = '% '.$_GET['searchWord'].' %';
 }
 $searchWord = $_GET['searchWord'] ?? '';
 
@@ -107,7 +107,7 @@ if ( $orderType != 'ASC' && $orderType != 'DESC' ) {
 // Prepare statement.
 $searchquery = $db->prepare("
 	SELECT content, date, retweets, favorites FROM realdonaldtrump 
-	WHERE content LIKE :search 
+	WHERE (' ' || content || ' ') LIKE :search 
 	AND favorites BETWEEN :favMin AND :favMax 
 	AND retweets BETWEEN :retMin AND :retMax
 	AND date(date) BETWEEN :dateMin AND :dateMax 
