@@ -53,46 +53,46 @@ if ( $orderType != 'ASC' && $orderType != 'DESC' ) {
 		<fieldset>
 			<legend>Date range</legend>
 			<label for='dateMin'>From:</label>
-			<input type='date' name='dateMin' value='2009-05-04' min='2009-05-04' max='2020-06-17'>
+			<input type='date' name='dateMin' value='<?php echo htmlspecialchars($dateMin, ENT_QUOTES) ?>' min='2009-05-04' max='2020-06-17'>
 			<label for='dateMax'>To:</label>
-			<input type='date' name='dateMax' value='2020-06-17' min='2009-05-04' max='2020-06-17'>
+			<input type='date' name='dateMax' value='<?php echo htmlspecialchars($dateMax, ENT_QUOTES) ?>' min='2009-05-04' max='2020-06-17'>
 		</fieldset>
 		
 		<!-- Min/Max favs -->
 		<fieldset>
 			<legend>Favorites</legend>
 			<label for='favMin'>Min:</label>
-			<input name='favMin' type='number' value='0'>
+			<input name='favMin' type='number' value='<?php echo htmlspecialchars($favMin, ENT_QUOTES) ?>'>
 			<label for='favMax'>Max:</label>
-			<input name='favMax' type='number' value='835575'>
+			<input name='favMax' type='number' value='<?php echo htmlspecialchars($favMax, ENT_QUOTES) ?>'>
 			</fieldset>
 
 		<!-- Min/Max retweets -->
 		<fieldset>
 			<legend>Retweets</legend>
 			<label for='retMin'>Min:</label>
-			<input name='retMin' type='number' value='0'>
+			<input name='retMin' type='number' value='<?php echo htmlspecialchars($retMin, ENT_QUOTES) ?>'>
 			<label for='retMax'>Max:</label>
-			<input name='retMax' type='number' value='302269'>
+			<input name='retMax' type='number' value='<?php echo htmlspecialchars($retMax, ENT_QUOTES) ?>'>
 		</fieldset>
 
 		<fieldset>
 			<legend>Sort results</legend>
 			<label for='orderBy'>Sort by</label>
 			<select name='orderBy'>
-				<option value='date'>Date</option>
-				<option value='favorites'>Favorites</option>
-				<option value='retweets'>Retweets</option>
+				<option value='date' <?php echo ($orderBy == 'date') ? 'selected' : ''  ?>>Date</option>
+				<option value='favorites' <?php echo ($orderBy == 'favorites') ? 'selected' : ''  ?>>Favorites</option>
+				<option value='retweets' <?php echo ($orderBy == 'retweets') ? 'selected' : ''  ?>>Retweets</option>
 			</select>
 
 			<select name='orderType'>
-				<option value='ASC'>ascending</option>
-				<option value='DESC'>descending</option>
+				<option value='ASC'<?php echo ($orderType == 'ASC') ? 'selected' : ''  ?>>ascending</option>
+				<option value='DESC'<?php echo ($orderType == 'DESC') ? 'selected' : ''  ?>>descending</option>
 			</select>
 		</fieldset>
 
 		<label for='limit'>Limit</label>
-		<input name='limit' type='number' value='100'>
+		<input name='limit' type='number' value='<?php echo $limit ?>'>
 
 		<input type='submit'>
 	</form>
