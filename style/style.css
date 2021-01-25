@@ -1,13 +1,15 @@
 html, body {
 	margin: 0;
+	color: #131313;
 }
 
 body {
   background: #e6ecf0;
   font-family: 'Roboto', sans-serif;
+	padding-bottom: 50px;
 }
 
-.tweet {
+.tweet, .content {
   max-width:490px;
   background: #fff;
   margin: 0 auto;
@@ -59,16 +61,30 @@ form {
 	max-width: 900px;
 }
 
+form a {
+	padding-left: 25px;
+	text-decoration: none;
+	color: #c42727;
+	font-size: 0.9em;
+}
+
+input[type=submit] {
+	margin-top: 15px;
+}
+
 #searchword {
 	text-align: center;
-	font-size: 1.5em; 
-	margin: 0 0 80px 0; 
+	font-size: 1.9em;
+	margin: 0 0 106px 0;
+	font-weight: bold;
+	color: #2d8adb;
 }
 
 #searchword input {
 	font-size: 1em;
 	border: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #2d8adb;
+	color: #2d8adb;
 }
 
 .arrow {
@@ -111,4 +127,48 @@ fieldset {
 .retweets svg {
 	color: #0db90d;
 }
+ 
+.num {
+	border-radius: 3px;
+	border: 1px solid #0dbedb;
+	margin: 6px 6px 0 0;
+	display: inline-block;
+	padding: 2px 0 2px 9px;
+}
 
+.num i {
+	color: white;
+	background: #0dbedb;
+	font-weight: bold;
+	border-radius: 2px;
+	font-style: unset;
+	padding: 2px 6px;
+}
+
+.info {
+	margin: 100px auto;
+	max-width: 550px;
+}
+
+#home {
+	position: absolute;
+	margin: 20px 0 0 29px;
+	font-weight: bold;
+	color: #2d8adb;
+	text-decoration: none;
+}
+
+#cta {
+	background-color: #2d8adb;
+	color: white;
+	text-decoration: none;
+	border-radius: 3px;
+	padding: 12px 15px;
+	margin-top: 5px;
+	display: inline-block;
+}
+
+#cta:hover {
+	-webkit-box-shadow: 5px 4px 7px -7px #000000; 
+	box-shadow: 5px 4px 7px -7px #000000;
+}
