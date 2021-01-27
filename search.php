@@ -147,7 +147,7 @@ printHead("@realDonaldTrump")
 		</form>
 	</div>
 
-	<a class='arrow' href='#top'><div class='stick'><i></i></div></a>
+	<a class='arrow' id="start"  href='#top'><div class='stick'><i></i></div></a>
 
 <?php 
 
